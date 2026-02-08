@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin:0;
+  animation: colorChange 8s infinite;
+  
+}
+@keyframes colorChange{
+  0%{background-color: rgb(255, 182, 193);}
+  33%{background-color: rgb(255, 182, 193);}
+  66%{background-color: rgb(255, 192, 203);}
+  100%{background-color: rgb(252, 142, 172);}
+  
+}
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top:3rem;
+}
+.hero-container{
+  padding: 10px;
+  width:350px;
+  height: 400px;
+  text-align: center;
+  border: 2px solid white;
+}
+.hero-container button{
+  background-color: transparent;
+  border: 1px solid white;
+  padding:.5rem;
+}
+.hero-container a{
+  text-decoration: none;
+  text-transform: uppercase;
+}

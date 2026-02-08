@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Style for the entire page body */
+body {
+  margin: 0;  /* Remove default margins */
+  padding: 0;  /* Remove default padding */
+  height: 100vh;  /* Make body fill 100% of viewport height */
+  display: flex;  /* Use flexbox layout */
+  justify-content: center;  /* Center content horizontally */
+  align-items: center;  /* Center content vertically */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient background */
+  font-family: Arial, sans-serif;  /* Set font for entire page */
+}
+
+/* Container for the title */
+.container {
+  text-align: center;  /* Center align text inside container */
+}
+
+/* Style for the main heading */
+h1 {
+  color: white;  /* White text color */
+  margin-bottom: 50px;  /* Space below the heading */
+}
+
+/* Style for the runaway button */
+#runaway-btn {
+  position: absolute;  /* Position button freely anywhere on screen (needed for moving it) */
+  padding: 20px 40px;  /* Space inside button (top/bottom 20px, left/right 40px) */
+  font-size: 20px;  /* Text size */
+  background-color: #ff6b6b;  /* Red background color */
+  color: white;  /* White text */
+  border: none;  /* Remove default button border */
+  border-radius: 50px;  /* Make button rounded/pill-shaped */
+  cursor: pointer;  /* Show hand cursor on hover */
+  transition: all 0.2s ease;  /* Smooth animation for all changes (0.2 seconds) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Add shadow effect below button */
+}
+
+/* When mouse hovers over button */
+#runaway-btn:hover {
+  transform: scale(1.1);  /* Make button 10% bigger */
+}
+</style>
+</head>
+<body>
+
+<!-- Main container with title -->
+<div class="container">
+  <h1>Try to Click the Button!</h1>
+</div>
+
+<!-- The button that will run away -->
+<button id="runaway-btn">Catch Me! 😜</button>
+
+<script>
+// Get reference to the button element
+const btn = document.getElementById('runaway-btn');
+
+// Function that moves the button to a random position
+function moveButton() {
+  // Calculate maximum X position (so button doesn't go off-screen on right side)
+  // window.innerWidth = total screen width
+  // btn.offsetWidth = button's width
+  // Subtract 20 for extra margin
+  const maxX = window.innerWidth - btn.offsetWidth - 20;
+  
+  // Calculate maximum Y position (so button doesn't go off-screen on bottom)
+  // window.innerHeight = total screen height
+  // btn.offsetHeight = button's height
+  // Subtract 20 for extra margin
+  const maxY = window.innerHeight - btn.offsetHeight - 20;
+  
+  // Generate random X position between 0 and maxX
+  // Math.random() generates number between 0 and 1
+  // Multiply by maxX to get range 0 to maxX
+  // Math.floor() rounds down to whole number
+  const randomX = Math.floor(Math.random() * maxX);
+  
+  // Generate random Y position between 0 and maxY
+  const randomY = Math.floor(Math.random() * maxY);
+  
+  // Move button to new random position
+  btn.style.left = randomX + 'px';  // Set horizontal position
+  btn.style.top = randomY + 'px';   // Set vertical position
+}
+
+// Event listener: When mouse enters button area (hover)
+// 'mouseenter' triggers when mouse cursor moves over the button
+btn.addEventListener('mouseenter', moveButton);
+
+// Event listener: When button is clicked
+// This is for desktop users who manage to click despite the movement
+btn.addEventListener('click', function(e) {
+  e.preventDefault();  // Prevent default click behavior
+  moveButton();  // Move the button away
+});
+
+// Event listener: When button is touched (for mobile/tablet devices)
+// 'touchstart' triggers when finger touches the button on touchscreen
+btn.addEventListener('touchstart', function(e) {
+  e.preventDefault();  // Prevent default touch behavior
+  moveButton();  // Move the button away
+});
+</script>
+
+</body>
+</html>

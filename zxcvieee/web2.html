@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="web2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="hero-container">
+          <h2>Will you be my valentines?</h2>
+          <img src="486249209_17878250526272284_3563081574575275653_n.webp" alt="">
+          <div id="cont">
+            <button id="normal">Yes</button><br>
+            <button id="runaway-btn">No</button>
+          </div>
+      </div>
+    </div>
+
+
+
+
+  <script>
+    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💞', '💝'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+      heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+      heart.style.opacity = Math.random() * 0.5 + 0.5;
+  
+      document.body.appendChild(heart);
+  
+      setTimeout(() => {
+        heart.remove();
+  }, 15000);
+}
+
+setInterval(createHeart, 200);
+
+    
+  </script>
+<script>
+const btn = document.getElementById('runaway-btn');
+const heroContainer = document.querySelector('.hero-container');
+
+function moveButton() {
+  const containerWidth = heroContainer.offsetWidth;
+  const containerHeight = heroContainer.offsetHeight;
+  
+  const maxX = containerWidth - btn.offsetWidth - 20;
+  const maxY = containerHeight - btn.offsetHeight - 20;
+  
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+  
+  btn.style.left = randomX + 'px';
+  btn.style.top = randomY + 'px';
+}
+
+btn.addEventListener('mouseenter', moveButton);
+
+btn.addEventListener('click', function(e) {
+  e.preventDefault();
+  moveButton();
+});
+
+btn.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  moveButton();
+});
+</script>
+    </body>
+</html>
