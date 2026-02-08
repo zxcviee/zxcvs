@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  top: -10px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top:3rem;
+}
+.hero-container{
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+#cont{
+   position: relative;
+  display: flex;
+  gap:1rem;
+  justify-content: center;
+}
+#yes {
+   padding: 20px 40px;
+  font-size: 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+#yes:hover {
+  background-color: #ff5252;
+}
+#no {
+  padding: 20px 40px;
+  font-size: 20px;
+  background-color: #90190c9a;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+#no:hover {
+  transform: scale(1.1);
+  background-color: #ac1908;
+}
+
+.hero-container a{
+  text-decoration: none;
+}
+.hero-container a:visited{
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}

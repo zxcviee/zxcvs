@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin:0;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  height: 100vh;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top:3rem;
+}
+.hero-container{
+  padding: 10px;
+  width:450px;
+  height: 400px;
+  text-align: center;
+  border: 1.5px solid #fad0c4;
+  border-radius: 20px;
+}
+.hero-container button{
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding:.5rem;
+}
+.hero-container a{
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.hero-container a:visited{
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}
